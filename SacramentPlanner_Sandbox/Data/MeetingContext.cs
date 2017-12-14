@@ -10,5 +10,8 @@ namespace SacramentPlanner.Data
         }
 
         public DbSet<Person> Person { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+        public DbSet<Hymn> Hymn { get; set; }
+        public DbSet<Speaker> Speaker { get; set; }
     }
 }
