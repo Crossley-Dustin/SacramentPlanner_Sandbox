@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SacramentPlanner.Models;
+using SacramentPlanner_Sandbox.Models;
 
-namespace SacramentPlanner.Controllers
+namespace SacramentPlanner_Sandbox.Controllers
 {
     public class HomeController : Controller
     {

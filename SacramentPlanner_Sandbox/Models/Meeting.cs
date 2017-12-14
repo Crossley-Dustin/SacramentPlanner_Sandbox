@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SacramentPlanner.Models
+namespace SacramentPlanner_Sandbox.Models
 {
     public class Meeting
     {
         public int MeetingID { get; set; }
         public DateTime MeetingDate { get; set; }
-        public Person Conducting { get; set; }
-        public Hymn OpeningHymn { get; set; }
-        public Person OpeningPrayer { get; set; }
-        public Hymn SacramentHymn { get; set; }
+        public int Conducting { get; set; }
+        public Guid OpeningHymn { get; set; }
+        public int OpeningPrayer { get; set; }
+        public Guid SacramentHymn { get; set; }
         public string IntermediateSong { get; set; }
-        public Hymn ClosingHymn { get; set; }
-        public Person ClosingPrayer { get; set; }
+        public Guid ClosingHymn { get; set; }
+        public int ClosingPrayer { get; set; }
 
-        public ICollection<Speaker> Speaker { get; set; }
+        public ICollection<Speaker> Speakers { get; set; }
     }
 }

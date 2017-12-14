@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SacramentPlanner.Data;
-using SacramentPlanner.Models;
+using SacramentPlanner_Sandbox.Data;
+using SacramentPlanner_Sandbox.Models;
 
-namespace SacramentPlanner.Controllers
+namespace SacramentPlanner_Sandbox.Controllers
 {
     public class MeetingsController : Controller
     {
@@ -54,7 +54,7 @@ namespace SacramentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MeetingID,MeetingDate,IntermediateSong")] Meeting meeting)
+        public async Task<IActionResult> Create([Bind("MeetingID,MeetingDate,IntermediateSong,ClosingHymn,ClosingPrayer,Conducting,OpeningHymn,OpeningPrayer,SacramentHymn")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace SacramentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MeetingID,MeetingDate,IntermediateSong")] Meeting meeting)
+        public async Task<IActionResult> Edit(int id, [Bind("MeetingID,MeetingDate,IntermediateSong,ClosingHymn,ClosingPrayer,Conducting,OpeningHymn,OpeningPrayer,SacramentHymn")] Meeting meeting)
         {
             if (id != meeting.MeetingID)
             {

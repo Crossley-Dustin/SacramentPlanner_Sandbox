@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SacramentPlanner": {
+    "SacramentPlanner_Sandbox": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

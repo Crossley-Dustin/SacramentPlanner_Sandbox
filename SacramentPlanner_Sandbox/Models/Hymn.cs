@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SacramentPlanner.Models
+namespace SacramentPlanner_Sandbox.Models
 {
     public class Hymn
     {

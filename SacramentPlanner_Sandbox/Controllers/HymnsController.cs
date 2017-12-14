@@ -10,85 +10,86 @@ using SacramentPlanner_Sandbox.Models;
 
 namespace SacramentPlanner_Sandbox.Controllers
 {
-    public class PeopleController : Controller
+    public class HymnsController : Controller
     {
         private readonly MeetingContext _context;
 
-        public PeopleController(MeetingContext context)
+        public HymnsController(MeetingContext context)
         {
             _context = context;
         }
 
-        // GET: People
+        // GET: Hymns
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Person.ToListAsync());
+            return View(await _context.Hymn.ToListAsync());
         }
 
-        // GET: People/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: Hymns/Details/5
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person
-                .SingleOrDefaultAsync(m => m.PersonID == id);
-            if (person == null)
+            var hymn = await _context.Hymn
+                .SingleOrDefaultAsync(m => m.HymnID == id);
+            if (hymn == null)
             {
                 return NotFound();
             }
 
-            return View(person);
+            return View(hymn);
         }
 
-        // GET: People/Create
+        // GET: Hymns/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: People/Create
+        // POST: Hymns/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PersonID,LastName,FirstMidName,Discriminator")] Person person)
+        public async Task<IActionResult> Create([Bind("HymnID,HymnNumber,HymnName")] Hymn hymn)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(person);
+                hymn.HymnID = Guid.NewGuid();
+                _context.Add(hymn);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View(hymn);
         }
 
-        // GET: People/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        // GET: Hymns/Edit/5
+        public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person.SingleOrDefaultAsync(m => m.PersonID == id);
-            if (person == null)
+            var hymn = await _context.Hymn.SingleOrDefaultAsync(m => m.HymnID == id);
+            if (hymn == null)
             {
                 return NotFound();
             }
-            return View(person);
+            return View(hymn);
         }
 
-        // POST: People/Edit/5
+        // POST: Hymns/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PersonID,LastName,FirstMidName,Discriminator")] Person person)
+        public async Task<IActionResult> Edit(Guid id, [Bind("HymnID,HymnNumber,HymnName")] Hymn hymn)
         {
-            if (id != person.PersonID)
+            if (id != hymn.HymnID)
             {
                 return NotFound();
             }
@@ -97,12 +98,12 @@ namespace SacramentPlanner_Sandbox.Controllers
             {
                 try
                 {
-                    _context.Update(person);
+                    _context.Update(hymn);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonExists(person.PersonID))
+                    if (!HymnExists(hymn.HymnID))
                     {
                         return NotFound();
                     }
@@ -113,41 +114,41 @@ namespace SacramentPlanner_Sandbox.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View(hymn);
         }
 
-        // GET: People/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // GET: Hymns/Delete/5
+        public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var person = await _context.Person
-                .SingleOrDefaultAsync(m => m.PersonID == id);
-            if (person == null)
+            var hymn = await _context.Hymn
+                .SingleOrDefaultAsync(m => m.HymnID == id);
+            if (hymn == null)
             {
                 return NotFound();
             }
 
-            return View(person);
+            return View(hymn);
         }
 
-        // POST: People/Delete/5
+        // POST: Hymns/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var person = await _context.Person.SingleOrDefaultAsync(m => m.PersonID == id);
-            _context.Person.Remove(person);
+            var hymn = await _context.Hymn.SingleOrDefaultAsync(m => m.HymnID == id);
+            _context.Hymn.Remove(hymn);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PersonExists(int id)
+        private bool HymnExists(Guid id)
         {
-            return _context.Person.Any(e => e.PersonID == id);
+            return _context.Hymn.Any(e => e.HymnID == id);
         }
     }
 }

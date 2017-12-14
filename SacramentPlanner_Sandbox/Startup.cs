@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SacramentPlanner.Data;
+using SacramentPlanner_Sandbox.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace SacramentPlanner
+namespace SacramentPlanner_Sandbox
 {
     public class Startup
     {

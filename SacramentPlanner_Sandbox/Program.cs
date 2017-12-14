@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using SacramentPlanner.Data;
+using SacramentPlanner_Sandbox.Data;
 
-namespace SacramentPlanner
+namespace SacramentPlanner_Sandbox
 {
     public class Program
     {
