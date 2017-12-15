@@ -16,8 +16,26 @@
                     @Html.DisplayNameFor(model => model.MeetingDate)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Conducting)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.OpeningHymn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OpeningPrayer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SacramentHymn)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.IntermediateSong)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClosingHymn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClosingPrayer)
+                </th>*@
             <th></th>
         </tr>
     </thead>
@@ -28,8 +46,26 @@
                 @Html.DisplayFor(modelItem => item.MeetingDate)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Conducting)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.OpeningHymn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningPrayer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SacramentHymn)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IntermediateSong)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingHymn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingPrayer)
+            </td>*@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MeetingID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.MeetingID">Details</a> |

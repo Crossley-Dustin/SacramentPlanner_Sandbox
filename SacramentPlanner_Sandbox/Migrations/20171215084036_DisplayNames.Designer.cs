@@ -11,9 +11,10 @@ using System;
 namespace SacramentPlanner_Sandbox.Migrations
 {
     [DbContext(typeof(MeetingContext))]
-    partial class MeetingContextModelSnapshot : ModelSnapshot
+    [Migration("20171215084036_DisplayNames")]
+    partial class DisplayNames
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
