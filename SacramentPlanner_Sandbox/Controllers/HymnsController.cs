@@ -20,9 +20,20 @@ namespace SacramentPlanner_Sandbox.Controllers
         }
 
         // GET: Hymns
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Hymn.ToListAsync());
+            //return View(await _context.Hymn.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+
+            var hymns = from s in _context.Hymn
+                        select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hymns = hymns.Where(s => s.HymnName.Contains(searchString));
+            }
+            hymns.OrderBy(s => s.HymnName);
+
+            return View(await hymns.AsNoTracking().ToListAsync());
         }
 
         // GET: Hymns/Details/5

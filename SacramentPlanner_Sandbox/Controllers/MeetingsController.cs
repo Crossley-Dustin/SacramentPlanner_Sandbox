@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SacramentPlanner_Sandbox.Data;
 using SacramentPlanner_Sandbox.Models;
+using SacramentPlanner_Sandbox.Models.MeetingViewModels;
 
 namespace SacramentPlanner_Sandbox.Controllers
 {
@@ -42,6 +43,31 @@ namespace SacramentPlanner_Sandbox.Controllers
             }
 
             return View(meeting);
+
+            //var viewModel = new MeetingIndexData();
+
+            //viewModel.Meetings = await _context.Meeting
+            //    .AsNoTracking()
+            //    .ToListAsync();
+
+            //if (viewModel.Meetings == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //if (id != null)
+            //{
+            //    Meeting meeting = viewModel.Meetings.Where(i => i.MeetingID == id.Value).Single();
+            //    viewModel.Speakers = meeting.Speakers.Select(s => s.MeetingID);
+            //}
+
+            //viewModel.Meetings = await _context.Meeting;
+            //foreach 
+            //    .Include(i => i.MeetingID)
+            //    .Include(i => i.OpeningHymn)
+            //        .ThenInclude()
+            //    .ToListAsync();
+
         }
 
         // GET: Meetings/Create
